@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+        #chatbox {
+            width: 80%;
+            max-width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        #input-box {
+            width: 80%;
+            max-width: 600px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            padding: 5px;
+            margin: 5px 0;
+        }
+        .user-message {
+            background-color: #e1f7d5;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #f0f0f0;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Chatbot Interface</h2>
+
+    <div id="chatbox"></div>
+
+    <div>
+        <input type="text" id="input-box" placeholder="Ask a question..." />
+        <button id="send-button">Send</button>
+    </div>
+
+    <div>
+        <input type="file" id="upload-file" />
+        <button id="upload-button">Upload Document</button>
+    </div>
+    <div>
+        <input type="text" id="link-input" placeholder="Enter URL" />
+        <button id="upload-link-button">Upload Link</button>
+    </div>
+
+    <script>
+        document.getElementById('send-button').addEventListener('click', function() {
+            var userMessage = document.getElementById('input-box').value;
+            if (userMessage.trim() === "") return;
+
+            displayMessage(userMessage, 'user-message');
+
+            fetch('/api/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    text: userMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                var botResponse = data.text;
+                displayMessage(botResponse, 'bot-message');
+            });
+
+            document.getElementById('input-box').value = '';
+        });
+
+        document.getElementById('upload-button').addEventListener('click', function() {
+            var fileInput = document.getElementById('upload-file');
+            var formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                displayMessage(data, 'bot-message');
+            });
+        });
+
+        document.getElementById('upload-link-button').addEventListener('click', function() {
+            var url = document.getElementById('link-input').value;
+            if (url.trim() === "") return;
+
+            fetch('/upload_link', {
+                method: 'POST',
+                body: new URLSearchParams({ 'url': url })
+            })
+            .then(response => response.text())
+            .then(data => {
+                displayMessage(data, 'bot-message');
+            });
+        });
+
+        function displayMessage(message, className) {
+            var messageElement = document.createElement('div');
+            messageElement.className = 'message ' + className;
+            messageElement.textContent = message;
+            document.getElementById('chatbox').appendChild(messageElement);
+            document.getElementById('chatbox').scrollTop = document.getElementById('chatbox').scrollHeight;
+        }
+    </script>
+
+</body>
+</html>
