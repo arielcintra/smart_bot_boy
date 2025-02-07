@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/arielcintra/smart_bot_boy/static/css/main.948897c4.css",
+    "main.js": "/arielcintra/smart_bot_boy/static/js/main.f8493cae.js",
+    "index.html": "/arielcintra/smart_bot_boy/index.html",
+    "main.948897c4.css.map": "/arielcintra/smart_bot_boy/static/css/main.948897c4.css.map",
+    "main.f8493cae.js.map": "/arielcintra/smart_bot_boy/static/js/main.f8493cae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.948897c4.css",
+    "static/js/main.f8493cae.js"
+  ]
+}
