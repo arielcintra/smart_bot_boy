@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/arielcintra/smart_bot_boy/static/css/main.948897c4.css",
-    "main.js": "/arielcintra/smart_bot_boy/static/js/main.f5137ec4.js",
-    "index.html": "/arielcintra/smart_bot_boy/index.html",
-    "main.948897c4.css.map": "/arielcintra/smart_bot_boy/static/css/main.948897c4.css.map",
-    "main.f5137ec4.js.map": "/arielcintra/smart_bot_boy/static/js/main.f5137ec4.js.map"
+    "main.css": "/smart_bot_boy/static/css/main.948897c4.css",
+    "main.js": "/smart_bot_boy/static/js/main.463191e4.js",
+    "index.html": "/smart_bot_boy/index.html",
+    "main.948897c4.css.map": "/smart_bot_boy/static/css/main.948897c4.css.map",
+    "main.463191e4.js.map": "/smart_bot_boy/static/js/main.463191e4.js.map"
   },
   "entrypoints": [
     "static/css/main.948897c4.css",
-    "static/js/main.f5137ec4.js"
+    "static/js/main.463191e4.js"
   ]
 }
