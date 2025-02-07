@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/smart_bot_boy/static/css/main.8e53395b.css",
-    "main.js": "/smart_bot_boy/static/js/main.96b10c76.js",
+    "main.js": "/smart_bot_boy/static/js/main.86209533.js",
     "index.html": "/smart_bot_boy/index.html",
     "main.8e53395b.css.map": "/smart_bot_boy/static/css/main.8e53395b.css.map",
-    "main.96b10c76.js.map": "/smart_bot_boy/static/js/main.96b10c76.js.map"
+    "main.86209533.js.map": "/smart_bot_boy/static/js/main.86209533.js.map"
   },
   "entrypoints": [
     "static/css/main.8e53395b.css",
-    "static/js/main.96b10c76.js"
+    "static/js/main.86209533.js"
   ]
 }
