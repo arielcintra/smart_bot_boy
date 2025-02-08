@@ -1,5 +1,7 @@
+const API_BASE_URL = 'http://127.0.0.1:3978';
+
 export const processText = async (text: string): Promise<string> => {
-    const response = await fetch('/process_text', {
+    const response = await fetch(`${API_BASE_URL}/process_text`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -11,7 +13,7 @@ export const processText = async (text: string): Promise<string> => {
 };
 
 export const processLink = async (url: string): Promise<string> => {
-    const response = await fetch('/process_link', {
+    const response = await fetch(`${API_BASE_URL}/process_link`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -23,7 +25,7 @@ export const processLink = async (url: string): Promise<string> => {
 };
 
 export const searchAnswer = async (question: string): Promise<string> => {
-    const response = await fetch('/search_answer', {
+    const response = await fetch(`${API_BASE_URL}/search_answer`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -32,4 +34,16 @@ export const searchAnswer = async (question: string): Promise<string> => {
     });
     const data = await response.json();
     return data.answer;
+};
+
+export const uploadFile = async (file: File): Promise<string> => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const response = await fetch('/upload_file', {
+        method: 'POST',
+        body: formData,
+    });
+    const data = await response.json();
+    return data.message;
 };

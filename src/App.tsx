@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import SmartBoy from './components/SmartBoy.tsx';
 import InputBoy from './components/InputBoy.tsx';
 import UploadLink from './components/UploadLink.tsx';
-import { processText, processLink, searchAnswer } from './api.ts';
+import UploadFile from './components/UploadFile';
+import { processText, processLink, searchAnswer, uploadFile } from './api.ts';
 
 const App: React.FC = () => {
     const [messages, setMessages] = useState<Array<{ text: string; isUser: boolean }>>([]);
@@ -25,12 +26,18 @@ const App: React.FC = () => {
         setMessages((prev) => [...prev, { text: answer, isUser: false }]);
     };
 
+    const handleUploadFile = async (file: File) => {
+        setMessages((prev) => [...prev, { text: `Uploading file: ${file.name}`, isUser: true }]);
+        const response = await uploadFile(file);
+        setMessages((prev) => [...prev, { text: response, isUser: false }]);
+    };
+
     return (
         <div style={{ fontFamily: 'Arial, sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', margin: 0, backgroundColor: '#f7f7f7' }}>
             <h2>Chatbot Interface</h2>
             <SmartBoy messages={messages} />
-            <InputBoy onSend={handleSearchAnswer} placeholder="Ask a question..." />
-            <InputBoy onSend={handleSendText} placeholder="Enter text to process..." />
+            <InputBoy onSend={handleSearchAnswer} placeholder="Talk with, my blessing..." />
+            <UploadFile onUpload={handleUploadFile} />
             <UploadLink onUpload={handleSendLink} />
         </div>
     );
