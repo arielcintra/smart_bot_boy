@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SmartBoy from './components/SmartBoy.tsx';
 import InputBoy from './components/InputBoy.tsx';
 import UploadLink from './components/UploadLink.tsx';
-import UploadFile from './components/UploadFile';
+import UploadFile from './components/UploadFile.tsx';
 import { processText, processLink, searchAnswer, uploadFile } from './api.ts';
 
 const App: React.FC = () => {
