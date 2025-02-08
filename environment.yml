@@ -1,0 +1,16 @@
+name: meu_ambiente
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12.3
+  - flask=3.1.0
+  - sentence-transformers=3.4.1
+  - pymongo=4.11
+  - openpyxl=3.1.5
+  - pip:
+    - requests==2.31.0
+    - transformers==4.48.3
+    - torch==2.5.1+cpu
+    - pytesseract==0.3.13
+    - python-docx==1.1.2

@@ -1,0 +1,1 @@
+web: python smart_boy_bot.py
