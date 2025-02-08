@@ -90,7 +90,6 @@ class PdfTextExtractor(BaseTextExtractor):
 class ImageTextExtractor(BaseTextExtractor):
     def extract_text(self, file):
         try:
-            from pytesseract import image_to_string
             image = Image.open(file)
             return image_to_string(image)
         except ImportError:
@@ -177,8 +176,6 @@ class DocumentService:
             return "Model fine-tuned successfully!"
         return "No data available for fine-tuning."
 
-app = Flask(__name__)
-
 @app.route('/')
 def index():
     return render_template('public/index.html')
@@ -194,7 +191,7 @@ def process_file():
 def process_text():
     text = request.json.get("text", "")
     if text:
-        response = DocumentService.process_text(text)  # Fine-tuning automático aqui
+        response = DocumentService.process_text(text)  # Automatic fine-tuning here
         return jsonify({"message": response}), 200
     return jsonify({"message": "No text provided."}), 400
 
@@ -202,7 +199,7 @@ def process_text():
 def process_link():
     url = request.json.get("url", "")
     if url:
-        response = DocumentService.process_link(url)  # Fine-tuning automático aqui
+        response = DocumentService.process_link(url)  # Automatic fine-tuning here
         return jsonify({"message": response}), 200
     return jsonify({"message": "No URL provided."}), 400
 

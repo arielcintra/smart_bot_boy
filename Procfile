@@ -1,1 +1,1 @@
-web: python smart_boy_bot.py
+web: gunicorn smart_boy_bot:smart_boy_bot
