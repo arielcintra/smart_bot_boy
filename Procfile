@@ -1,1 +1,0 @@
-web: gunicorn smart_boy_bot:smart_boy_bot
