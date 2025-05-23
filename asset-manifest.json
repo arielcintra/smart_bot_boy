@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/smart_bot_boy/static/css/main.e7223330.css",
+    "main.js": "/smart_bot_boy/static/js/main.3a8648d5.js",
+    "index.html": "/smart_bot_boy/index.html",
+    "main.e7223330.css.map": "/smart_bot_boy/static/css/main.e7223330.css.map",
+    "main.3a8648d5.js.map": "/smart_bot_boy/static/js/main.3a8648d5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7223330.css",
+    "static/js/main.3a8648d5.js"
+  ]
+}
