@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 3978
 
-CMD ["gunicorn", "-b", "0.0.0.0:3978", "run:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:3978", "--timeout", "120", "run:app"]
