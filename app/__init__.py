@@ -1,8 +1,13 @@
 from flask import Flask
-from app.routes import setup_routes
+from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
-    app.config['UPLOAD_FOLDER'] = "uploads"
+    CORS(app)
     setup_routes(app)
+
+    @app.route("/healthy")
+    def health_check():
+        return "SmartBoy backend is running"
+
     return app
