@@ -93,3 +93,4 @@ The frontend is deployed on GitHub Pages:
 Ariel Cintra
 📧 [arielcintra@gmail.com](mailto:arielcintra@gmail.com)
 🔗 [GitHub @arielcintra](https://github.com/arielcintra)
+
