@@ -1,6 +1,6 @@
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
-    ? process.env.REACT_APP_API_BASE_URL
+    ? "https://smartboy-backend.onrender.com"
     : "http://localhost:3978";
 
 export const processText = async (text: string): Promise<string> => {
