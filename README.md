@@ -66,6 +66,7 @@ Open your browser at http://localhost:3000
 
 ### 📁 Project Structure
 
+```
 src/
 ├── components/
 │   ├── SmartBoy.tsx       # Chat display component
@@ -76,6 +77,7 @@ src/
 ├── api.ts                 # API utilities (calls to Flask)
 ├── index.tsx              # ReactDOM entry point
 ├── styles.css             # Global styles
+```
 
 ### 🧪 Usage Guide
 
